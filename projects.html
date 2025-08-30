@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Raleway;
+  background-color: #202125;
+}
+
+.heading {
+    text-align: center;
+    font-size: 2.0em;
+    letter-spacing: 1px;
+    padding: 40px;
+    color: white;
+}
+
+.gallery-image {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-image img {
+  height: 250px;
+  width: 350px;
+  transform: scale(1.0);
+  transition: transform 0.4s ease;
+}
+
+.img-box {
+  box-sizing: content-box;
+  margin: 10px;
+  height: 250px;
+  width: 350px;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
+  position: relative;
+  background-color: white;
+}
+
+.caption {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  opacity: 0.0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.transparent-box {
+  height: 250px;
+  width: 350px;
+  background-color:rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s ease;
+}
+
+.img-box:hover img { 
+  transform: scale(1.1);
+}
+
+.img-box:hover .transparent-box {
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
+.img-box:hover .caption {
+  transform: translateY(-20px);
+  opacity: 1.0;
+}
+
+.img-box:hover {
+  cursor: pointer;
+}
+
+.caption > p:nth-child(2) {
+  font-size: 0.8em;
+}
+
+.opacity-low {
+  opacity: 0.5;
+}
+    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KoumasWeb</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your custom CSS -->
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/buttons.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: transparent;">
+    <div class="container">
+
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/koumasweb.jpg" alt="Logo" class="rounded me-2" style="height: 50px;">
+      </a>
+
+      <!-- Hamburger Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Nav Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="grooming.html">Our Client Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+          <!-- Hero Section -->
+    <section class="hero d-flex align-items-center justify-content-center text-center">
+        <div style="padding-top: 100px;" class="hero-content">
+            <h1>Trusted by Local Businesses</h1>
+            <p>A showcase of websites we’ve crafted for businesses that wanted to stand out online. (and did)</p>
+        </div>
+    </section>
+
+     <p class="heading"></p>
+     <h2 style="margin-left: 20px;">1. Pet Love Studio</h2> 
+     <p style="margin-left: 20px;">Modern, mobile-friendly design for a pet grooming business in Cyprus.</p>
+    <a href="https://petlove-studio.com" target="_blank"><button style="margin-top: 5px; margin-left: 20px;" class="super-button">
+  <span>Visit Live Website</span>
+  <svg fill="none" viewBox="0 0 24 24" class="arrow">
+    <path
+      stroke-linejoin="round"
+      stroke-linecap="round"
+      stroke-width="2"
+      stroke="currentColor"
+      d="M5 12h14M13 6l6 6-6 6"
+    ></path>
+  </svg>
+</button>
+</a>
+     
+  <div class="gallery-image">
+    <div class="img-box">
+      <img style="object-fit: cover;" src="images/Screenshot 2025-08-30 181442.png" alt="" />
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Home Page</p>
+          <p class="opacity-low">Welcomes you to pet love studio</p>
+        </div>
+      </div> 
+    </div>
+<div class="img-box">
+  <video 
+    style="width: 350px; height: 250px; object-fit: cover;" 
+    src="images/Untitled video - Made with Clipchamp.mp4" 
+    autoplay 
+    loop 
+    muted
+    playsinline
+  ></video>
+  <div class="transparent-box">
+    <div class="caption">
+      <p>Booking System (with Calendly)</p>
+      <p class="opacity-low">Fast and Easy to use</p>
+    </div>
+  </div>
+</div>
+
+    <div class="img-box">
+      <img src="images/Screenshot 2025-08-30 183118.png" style="object-fit: cover;" alt="" />
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Photo Grooming Gallery</p>
+          <p class="opacity-low">Nice and appealing grid</p>
+        </div>
+      </div>
+    </div>
+    <div class="img-box">
+     <img src="images/Screenshot 2025-08-30 183134.png" style="object-fit: cover;" alt="" />
+      <div class="transparent-box">
+        <div class="caption">
+          <p>Contact us Page</p>
+          <p class="opacity-low">Find ways to get in touch with the shop</p>
+        </div>
+      </div> 
+    </div>
+    <div class="img-box">
+      <img src="images/Screenshot 2025-08-30 183201.png" style="object-fit: cover;" alt="" />
+      <div class="transparent-box">
+        <div class="caption">
+          <p>About</p>
+          <p class="opacity-low">Info about our customer</p>
+        </div>
+      </div> 
+    </div>
+    
+  </div>
+  
+
+
+  <!-- Bootstrap JS (needed for hamburger toggler) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
