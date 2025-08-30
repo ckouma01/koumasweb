@@ -1,10 +1,21 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: radial-gradient(circle at center, #111 0%, #000 80%);
+/* Global Styles */
+body, p, div {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* Navbar */
+.custom-navbar {
+    background-color: orange;
+    font-weight: bold;
+}
+
+/* Hero Section */
 .hero {
     position: relative;
     height: 150vh; /* full viewport height */
@@ -13,3 +24,188 @@ html, body {
     background-position: center 30%;
     color: white;
 }
+
+/* Hero Section */
+.hero2 {
+    position: relative;
+    height: 150vh;
+    background-image: url('../images/grooming.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; /* add this so it doesn’t repeat */
+    background-position: center 30%;
+    color: white;
+}
+
+/* On smaller screens */
+@media (max-width: 768px) {
+    .hero2 {
+        height: 300px; /* shorter height for tablets & mobiles */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero2 {
+        height: 200px; /* even shorter for small phones */
+    }
+}
+
+/* Hero Section */
+.hero3 {
+    position: relative;
+    height: 150vh;
+    background-image: url('../images/ILOVEPETLOVESTIDIO.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; /* add this so it doesn’t repeat */
+    background-position: center 30%;
+    color: white;
+}
+
+/* On smaller screens */
+@media (max-width: 768px) {
+    .hero3 {
+        height: 300px; /* shorter height for tablets & mobiles */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero3 {
+        height: 200px; /* even shorter for small phones */
+    }
+}
+
+
+/* Hero Section */
+.hero4 {
+    position: relative;
+    height: 150vh;
+    background-image: url('../images/ABOUT.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; /* add this so it doesn’t repeat */
+    background-position: center 30%;
+    color: white;
+}
+
+/* On smaller screens */
+@media (max-width: 768px) {
+    .hero4 {
+        height: 300px; /* shorter height for tablets & mobiles */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero4 {
+        height: 200px; /* even shorter for small phones */
+    }
+}
+
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+}
+
+.hero-content {
+    position: relative; /* keep content above overlay */
+    z-index: 1;
+    padding: 0 20px;
+    animation: fadeInPop 1s ease-out forwards;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    opacity: 0; /* prevent flash before animation */
+    animation: fadeInPop 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.hero-content p,h1 {
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.15);
+    background-color:rgba(128,128,128,0.50);
+}
+
+/* Fade + pop animation */
+@keyframes fadeInPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+.btn-orange {
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-orange:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+/* Footer styling */
+.custom-footer {
+    background-color: #efb22e; /* Same orange as navbar */
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+
+.btn-orange {
+    background-color: #efb22e;   /* your navbar orange */
+    color: white;
+    font-weight: bold;
+    padding: 12px 30px;  /* bigger padding */
+    font-size: 1.2rem;   /* bigger text */
+    border: none;
+    border-radius: 8px;  /* smooth corners */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-orange:hover {
+    background-color: #d99d1a;  /* slightly darker orange */
+    transform: scale(1.05);     /* subtle zoom effect */
+    color: white;
+}
+
+
+.hero {
+    color: white;
+    justify-content: center;
+    margin-top: 130px;
+}
+
+/* Navbar */
+.custom-navbar {
+    background-color: transparent;
+    font-weight: bold;
+}
+
+
+
+
+
