@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KoumasWeb</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/sphere.css">
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Inline fix for sphere and body */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-style: preserve-3d;
+            perspective: 222px;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: "Open Sans", Helvetica, Arial, sans-serif;
+            color: #fff;
+            padding-left: var(--menu-width-desktop);
+            background: radial-gradient(circle at center, #111 0%, #000 80%);
+        }
+
+        .sphere {
+            animation: rot 16s linear infinite reverse;
+            width: 333px;
+            height: 333px;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            transform-origin: center center;
+            position: relative;
+        }
+
+        i {
+            position: absolute;
+            width: 333px;
+            height: 333px;
+            line-height: 333px;
+            transform-style: preserve-3d;
+            border-radius: 50%;
+            backface-visibility: visible;
+            box-shadow: 0 0 83px 0 rgba(255, 255, 255, 0.1),
+                        inset 0 0 83px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes rot {
+            to { transform: rotateY(360deg) rotateZ(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu -->
+    <nav class="menu" tabindex="0">
+        <div class="smartphone-menu-trigger"></div>
+        <header class="avatar">
+            <img src="images/koumasweb.jpg" alt="Avatar">
+            <h2>KoumasWeb</h2>
+        </header>
+        <ul>
+            <li tabindex="0" class="icon-dashboard"><span style="color:white;">Dashboard</span></li>
+            <li tabindex="0" class="icon-customers"><span>Customers</span></li>
+            <li tabindex="0" class="icon-users"><span>Users</span></li>
+            <li tabindex="0" class="icon-settings"><span>Settings</span></li>
+        </ul>
+    </nav>
+
+        <!-- Hero Section -->
+    <section class="hero d-flex align-items-center justify-content-center">
+        <div class="hero-content">
+            <h1>Let's get your business shining bright in the online world.</h1>
+            <p>You are one click away</p>
+            <button class="super-button">
+  <span>Get a Website</span>
+  <svg fill="none" viewBox="0 0 24 24" class="arrow">
+    <path
+      stroke-linejoin="round"
+      stroke-linecap="round"
+      stroke-width="2"
+      stroke="currentColor"
+      d="M5 12h14M13 6l6 6-6 6"
+    ></path>
+  </svg>
+</button>
+        </div>
+    </section>
+
+    <!-- 3D Sphere -->
+    <div class="sphere">
+        <!-- 32 elements for sphere rotation -->
+        <i style="transform: rotateY(11.25deg)"></i>
+        <i style="transform: rotateY(22.5deg)"></i>
+        <i style="transform: rotateY(33.75deg)"></i>
+        <i style="transform: rotateY(45deg)"></i>
+        <i style="transform: rotateY(56.25deg)"></i>
+        <i style="transform: rotateY(67.5deg)"></i>
+        <i style="transform: rotateY(78.75deg)"></i>
+        <i style="transform: rotateY(90deg)"></i>
+        <i style="transform: rotateY(101.25deg)"></i>
+        <i style="transform: rotateY(112.5deg)"></i>
+        <i style="transform: rotateY(123.75deg)"></i>
+        <i style="transform: rotateY(135deg)"></i>
+        <i style="transform: rotateY(146.25deg)"></i>
+        <i style="transform: rotateY(157.5deg)"></i>
+        <i style="transform: rotateY(168.75deg)"></i>
+        <i style="transform: rotateY(180deg)"></i>
+        <i style="transform: rotateX(191.25deg)"></i>
+        <i style="transform: rotateX(202.5deg)"></i>
+        <i style="transform: rotateX(213.75deg)"></i>
+        <i style="transform: rotateX(225deg)"></i>
+        <i style="transform: rotateX(236.25deg)"></i>
+        <i style="transform: rotateX(247.5deg)"></i>
+        <i style="transform: rotateX(258.75deg)"></i>
+        <i style="transform: rotateX(270deg)"></i>
+        <i style="transform: rotateX(281.25deg)"></i>
+        <i style="transform: rotateX(292.5deg)"></i>
+        <i style="transform: rotateX(303.75deg)"></i>
+        <i style="transform: rotateX(315deg)"></i>
+        <i style="transform: rotateX(326.25deg)"></i>
+        <i style="transform: rotateX(337.5deg)"></i>
+        <i style="transform: rotateX(348.75deg)"></i>
+        <i style="transform: rotateX(360deg)"></i>
+    </div>
+
+
+    <!-- JS for smartphone menu toggle -->
+    <script>
+        const menu = document.querySelector('.menu');
+        const trigger = document.querySelector('.smartphone-menu-trigger');
+
+        trigger.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>

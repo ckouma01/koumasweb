@@ -1,0 +1,15 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #111 0%, #000 80%);
+}
+
+.hero {
+    position: relative;
+    height: 150vh; /* full viewport height */
+    background-image: url('../images/unnamed.webp');
+    background-size: cover;
+    background-position: center 30%;
+    color: white;
+}
