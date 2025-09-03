@@ -80,34 +80,40 @@
     <h2>Start your journey with me</h2>
     <p>Fill in the form below with your order request and let’s start the conversation.</p>
 
-    <!-- Email Form -->
-    <form style="max-width: 600px; margin: 40px auto; text-align: left;" action="mailto:ckouma01@ucy.ac.cy" method="POST" enctype="text/plain">
-      <div class="mb-3">
-        <label for="name" class="form-label">Your Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Your Email</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Order Request / Message</label>
-        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-      </div>
-      <button type="submit" class="super-button">
-        <span>Send Request</span>
-        <svg fill="none" viewBox="0 0 24 24" class="arrow">
-          <path
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            stroke-width="2"
-            stroke="currentColor"
-            d="M5 12h14M13 6l6 6-6 6"
-          ></path>
-        </svg>
-      </button>
-    </form>
-  </section>
+
+    
+   <!-- Email Form -->
+<form 
+  style="max-width: 600px; margin: 40px auto; text-align: left;" 
+  action="https://formspree.io/f/movnkowy" 
+  method="POST"
+>
+  <div class="mb-3">
+    <label for="name" class="form-label">Your Name</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Your Email</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label for="message" class="form-label">Order Request / Message</label>
+    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="super-button">
+    <span>Send Request</span>
+    <svg fill="none" viewBox="0 0 24 24" class="arrow">
+      <path
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        stroke-width="2"
+        stroke="currentColor"
+        d="M5 12h14M13 6l6 6-6 6"
+      ></path>
+    </svg>
+  </button>
+</form>
+
 
     <!-- Footer -->
   <footer class="bg-black text-light py-4 mt-5">
