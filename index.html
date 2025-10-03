@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KoumasWeb</title>
   <link rel="icon" href="images/koumasWebSquare.jpg" type="image/x-icon">
@@ -9,109 +9,303 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Your custom CSS -->
+  <!-- Your CSS -->
   <link rel="stylesheet" href="styles/general.css">
   <link rel="stylesheet" href="styles/buttons.css">
+
+  <style>
+    /* ---------- NAVBAR (same spirit as your projects page) ---------- */
+    .navbar {
+      background: rgba(0, 0, 0, 0.55) !important;
+      backdrop-filter: blur(8px);
+    }
+    .navbar-brand img { height: 50px; width: auto; }
+
+    /* ---------- HERO LAYOUT ---------- */
+    .hero {
+      padding-top: 100px;
+      padding-bottom: 40px;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 24px;
+      text-align: center;
+    }
+    .hero .hero-content h1 { margin-bottom: 6px; }
+
+    /* ---------- HIGHLIGHTS STRIP (runs on mobile + desktop) ---------- */
+    .highlights { --gap: 1rem; --speed: 70s; }
+    .highlights {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-inline: 24px;
+    }
+    .highlights-viewport {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .highlights-track {
+      display: flex;
+      align-items: center;
+      gap: var(--gap);
+      width: max-content;
+      will-change: transform;
+      animation: marquee var(--speed) linear infinite; /* always animate */
+    }
+    .highlights:hover .highlights-track {
+      animation-play-state: paused; /* pause on hover (desktop) */
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); } /* duplicate items in JS for seamless loop */
+    }
+
+    .highlight-card {
+      width: 280px;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      cursor: pointer;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      text-decoration: none;
+      color: inherit;
+    }
+    .highlight-card img,
+    .highlight-card video {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .highlight-card .label {
+      position: absolute;
+      top: 8px; left: 8px;
+      z-index: 10;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
+    }
+    .highlight-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      opacity: 0;
+      transition: opacity .3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      z-index: 4;
+      pointer-events: none;
+    }
+    .highlight-card:hover .overlay { opacity: 1; }
+    .overlay h6 { margin-bottom: .4rem; }
+    .overlay p { font-size: 0.85rem; margin: 0; }
+
+    @media (min-width: 992px) {
+      .highlight-card { width: 340px; }
+      .highlight-card img, .highlight-card video { height: 220px; }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: transparent;">
-  <div class="container d-flex align-items-center">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container d-flex align-items-center">
 
-    <!-- Logo + Instagram side by side -->
-    <div class="d-flex align-items-center">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="images/koumasweb.jpg" alt="Logo" class="rounded me-2" style="height: 50px;">
-      </a>
-      <a href="https://www.instagram.com/koumasweb" target="_blank" class="d-flex align-items-center">
-        <img src="images/instagram-new--v2.png" alt="Instagram" style="height: 30px; width: 30px;">
-      </a>
-      <a href="https://www.facebook.com/share/17PwXqmmLV/" target="_blank" class="d-flex align-items-center">
-        <img src="images/Facebook-icon-white-PNG-large-size.png" alt="fb" style="height: 25px; width: 27px; margin-left: 10px;">
-      </a>
-    </div>
+      <!-- Brand + socials (like your projects page) -->
+      <div class="d-flex align-items-center">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/koumasweb.jpg" alt="Logo" class="rounded me-2">
+        </a>
+        <a href="https://www.instagram.com/koumasweb" target="_blank" class="d-flex align-items-center">
+          <img src="images/instagram-new--v2.png" alt="Instagram" style="height:30px;width:30px;">
+        </a>
+        <a href="https://www.facebook.com/share/17PwXqmmLV/" target="_blank" class="d-flex align-items-center">
+          <img src="images/Facebook-icon-white-PNG-large-size.png" alt="fb" style="height:25px;width:27px;margin-left:10px;">
+        </a>
+      </div>
 
-    <!-- Hamburger Toggler -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <!-- Hamburger -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Nav Links -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="projects.html">Projects We Made For Our Clients</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Get a Website Now</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-      </ul>
-    </div>
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects We Made For Our Clients</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Get a Website Now</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
 
-  </div>
-</nav>
+          
 
-
-          <!-- Hero Section -->
-    <section class="hero d-flex align-items-center justify-content-center text-center">
-        <div style="padding-top: 100px;" class="hero-content">
-            <h1>Let's get your business shining bright in the online world</h1>
-            <p>You are one click away.</p>
-            <a href="contact.html">
-               <button style="margin-top: 5px; margin-bottom: 40px;" class="super-button">
-                  <span>Get a Website</span>
-                  <svg fill="none" viewBox="0 0 24 24" class="arrow">
-                    <path
-                      stroke-linejoin="round"
-                      stroke-linecap="round"
-                      stroke-width="2"
-                      stroke="currentColor"
-                      d="M5 12h14M13 6l6 6-6 6"
-                    ></path>
-                  </svg>
-                </button>
-            </a>
-           
-        </div>
-    </section>
-
-      <!-- Why Your Business Needs a Website -->
-  <section class="py-5 bg-dark text-light text-center">
-    <div class="container">
-      <h2 class="mb-4">Why Your Business Needs a Website</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <h4>Be Discoverable</h4>
-          <img style="height: 80px;" src="images/white-search-icon-button-png-img-735811696240431a0p3ex0i2v.png">
-          <p>More and more people search online first. A website makes sure your business is visible 24/7.</p>
-        </div>
-        <div class="col-md-4">
-          <h4>Build Trust</h4>
-          <img style="height: 80px;" src="images/trust.png">
-          <p>A professional website builds credibility and shows your customers that you’re serious and reliable.</p>
-        </div>
-        <div class="col-md-4">
-          <h4>Grow Faster</h4>
-          <img style="height: 80px; width: 80px;" src="images/growth.png">
-          <p>Showcase your services, attract new clients, and stay ahead of competitors who don’t have an online presence.</p>
+        <!-- Social (desktop only) -->
+        <div class="d-none d-lg-flex ms-3 align-items-center gap-3">
+          <a href="https://www.instagram.com/koumasweb" target="_blank">
+            <img src="images/instagram-new--v2.png" alt="Instagram" style="height:30px;width:30px;">
+          </a>
+          <a href="https://www.facebook.com/share/17PwXqmmLV/" target="_blank">
+            <img src="images/Facebook-icon-white-PNG-large-size.png" alt="Facebook" style="height:27px;width:29px;">
+          </a>
         </div>
       </div>
+
     </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Let's get your business shining bright in the online world</h1>
+      <p>You are one click away.</p>
+      <a href="contact.html">
+        <button style="margin-top: 5px; margin-bottom: 20px;" class="super-button">
+          <span>Get a Website</span>
+          <svg fill="none" viewBox="0 0 24 24" class="arrow">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" d="M5 12h14M13 6l6 6-6 6"></path>
+          </svg>
+        </button>
+      </a>
+    </div>
+
+    <div class="container">
+      <h2 class="text-center mb-3 text-light">Recent Work</h2>
+    </div>
+
+    <!-- Highlights -->
+    <div class="highlights" id="highlights">
+      <div class="highlights-viewport">
+        <div class="highlights-track" id="highlightsTrack"></div>
+      </div>
+    </div>
+
+    <!-- Why Your Business Needs a Website -->
+    <section class="py-5 bg-dark text-light text-center">
+      <div class="container">
+        <h2 class="mb-4">Why Your Business Needs a Website</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Be Discoverable</h4>
+            <img style="height: 80px;" src="images/white-search-icon-button-png-img-735811696240431a0p3ex0i2v.png" alt="">
+            <p>More and more people search online first. A website makes sure your business is visible 24/7.</p>
+          </div>
+          <div class="col-md-4">
+            <h4>Build Trust</h4>
+            <img style="height: 80px;" src="images/trust.png" alt="">
+            <p>A professional website builds credibility and shows your customers that you’re serious and reliable.</p>
+          </div>
+          <div class="col-md-4">
+            <h4>Grow Faster</h4>
+            <img style="height: 80px; width: 80px;" src="images/growth.png" alt="">
+            <p>Showcase your services, attract new clients, and stay ahead of competitors who don’t have an online presence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </section>
+
+  <!-- Our Roaster Section -->
+<section class="py-5 text-center">
+  <div class="container">
+    <h2 class="mb-3">Our Roaster</h2>
+    <p class="mb-5">We sincerely thank our amazing clients for trusting us</p>
+    <div class="row g-4 justify-content-center align-items-center">
+      <div class="col-6 col-md-4">
+        <img src="images/logoPROTOPORIAS.png" alt="Protoporia UNIC" class="img-fluid" style="max-height: 120px;">
+      </div>
+      <div class="col-6 col-md-4">
+        <img src="images/vasilevousaPNG.png" alt="Vasilevousa" class="img-fluid" style="max-height: 120px;">
+      </div>
+      <div class="col-6 col-md-4">
+        <img src="images/497663176_703682725367800_1093382578716552799_n.png" alt="Pet Love Studio" class="img-fluid" style="height: 140px;">
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="bg-black text-light py-4 mt-5">
     <div class="container text-center">
       <p class="mb-1">&copy; 2025 KoumasWeb. All rights reserved.</p>
       <p class="mb-0">
-        <a href="https://instagram.com/koumasweb" target="_blank" class="text-warning text-decoration-none">Follow us on Instagram</a> | 
+        <a href="https://instagram.com/koumasweb" target="_blank" class="text-warning text-decoration-none">Follow us on Instagram</a> |
         <a href="contact.html" class="text-warning text-decoration-none">Contact Us</a>
       </p>
     </div>
   </footer>
 
-
-  <!-- Bootstrap JS (needed for hamburger toggler) -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Highlights builder (local assets) -->
+  <script>
+    const highlightsTrack = document.getElementById('highlightsTrack');
+
+    const items = [
+      // Protoporia
+      { project: 'Protoporia – UNIC', title: 'Protoporia – Home Page', desc: 'Official student union website (demo)', url: 'images/protoporia-home-page.png', isVideo: false, link: 'projects.html' },
+
+      // Vasilevousa
+      { project: 'Vasilevousa', title: 'Vasilevousa – Home', desc: 'Mosaic Art business site', url: 'images/Vasilevousa1.png', isVideo: false, link: 'projects.html' },
+      { project: 'Vasilevousa', title: 'Vasilevousa – Gallery Shop', desc: 'Order easily', url: 'images/Vasilevousa2.mkv', isVideo: true, link: 'projects.html' },
+      { project: 'Vasilevousa', title: 'Vasilevousa – About', desc: 'Learn about the artist', url: 'images/Vasilevousa3.mkv', isVideo: true, link: 'projects.html' },
+      { project: 'Vasilevousa', title: 'Vasilevousa – Product Cards', desc: 'Horizontal scrolling catalogue', url: 'images/Vasilevousa4.png', isVideo: false, link: 'projects.html' },
+      { project: 'Vasilevousa', title: 'Vasilevousa – Image Switching', desc: 'More images available', url: 'images/Vasilevousa7.mkv', isVideo: true, link: 'projects.html' },
+
+      // Pet Love Studio
+      { project: 'Pet Love Studio', title: 'Pet Love Studio – Home', desc: 'Welcomes you to Pet Love Studio', url: 'images/Screenshot 2025-08-30 181442.png', isVideo: false, link: 'projects.html' },
+      { project: 'Pet Love Studio', title: 'Pet Love Studio – Booking', desc: 'Calendly booking system', url: 'images/Untitled video - Made with Clipchamp.mp4', isVideo: true, link: 'projects.html' },
+      { project: 'Pet Love Studio', title: 'Pet Love Studio – Gallery', desc: 'Nice and appealing grid', url: 'images/Screenshot 2025-08-30 183118.png', isVideo: false, link: 'projects.html' },
+      { project: 'Pet Love Studio', title: 'Pet Love Studio – Contact', desc: 'Ways to get in touch', url: 'images/Screenshot 2025-08-30 183134.png', isVideo: false, link: 'projects.html' },
+      { project: 'Pet Love Studio', title: 'Pet Love Studio – About', desc: 'Info about our customer', url: 'images/Screenshot 2025-08-30 183201.png', isVideo: false, link: 'projects.html' },
+    ];
+
+    function makeCard(item) {
+      const a = document.createElement('a');
+      a.href = item.link;
+      a.className = 'highlight-card';
+      a.setAttribute('aria-label', item.title);
+
+      a.innerHTML = `
+        <span class="label">${item.project}</span>
+        ${item.isVideo
+          ? `<video src="${item.url}" muted playsinline loop></video>`
+          : `<img src="${item.url}" alt="${item.title}" loading="lazy">`}
+        <div class="overlay">
+          <h6>${item.title}</h6>
+          <p>${item.desc}</p>
+        </div>
+      `;
+
+      if (item.isVideo) {
+        const vid = a.querySelector('video');
+        vid.addEventListener('canplay', () => { vid.play().catch(()=>{}); });
+      }
+      return a;
+    }
+
+    // Build the track: one full set, then duplicate for seamless loop
+    items.forEach(i => highlightsTrack.appendChild(makeCard(i)));
+    if (items.length >= 4) items.forEach(i => highlightsTrack.appendChild(makeCard(i)));
+  </script>
 </body>
 </html>
